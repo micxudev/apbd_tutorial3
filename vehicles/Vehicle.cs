@@ -26,19 +26,19 @@ public abstract class Vehicle
         if (Containers.Count >= MaxContainers) 
             return false;
         
-        if (CurrentWeight() + container.TotalWeightKg() > MaxContainersWeightTons * 1000)
+        if (CurrentWeightKg() + container.TotalWeightKg() > MaxContainersWeightTons * 1000)
            return false;
         
         Containers.Add(container);
         return true;
     }
 
-    private double CurrentWeight()
+    private double CurrentWeightKg()
     {
-        double totalWeight = 0;
+        double totalWeightKg = 0;
         foreach (var container in Containers)
-            totalWeight += container.TotalWeightKg();
-        return totalWeight;
+            totalWeightKg += container.TotalWeightKg();
+        return totalWeightKg;
     }
 
     public bool AddContainers(List<Container> containers)
